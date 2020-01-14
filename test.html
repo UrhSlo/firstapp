@@ -18,12 +18,12 @@
             <form class="ui form">
                 <div class="field">
                     <label>Ime uporabnika</label>
-                    <input id="ime" type="text" name="first-name" placeholder="First Name">
+                    <input id="ime" type="text" placeholder="First Name">
                 </div>
-                <button class="ui button primary" type="button">Dodaj</button>
+                <button v-on:click="addToSeznam()" class="ui button primary" type="button">Dodaj</button>
             </form>
             <hr />
-            <p>{{ ime }}</p>
+            <p v-for="ime in seznam">{{ ime }}</p>
         </div>
     </div>
     <script>
@@ -31,8 +31,16 @@
             new Vue({
                 el: "#root",
                 data: () => ({
-                    ime: "Janez"
+                    seznam: ["Anže", "Žak", "Jan"]
                 }),
+                methods: {
+                    clicked() {
+                        alert(this.ime);
+                    },
+                    addToSeznam() {
+                        
+                    }
+                }
             });
         });
     </script>
